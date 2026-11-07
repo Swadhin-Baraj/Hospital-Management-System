@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management | MediCare</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>🏥 MediCare</h2>
+        <p class="subtitle">Hospital Management</p>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="patients.html">Patients</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="departments.html">Departments</a>
+            <a href="appointments.html" class="active">Appointments</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Appointment Management</h1>
+                <p>Book and manage patient appointments</p>
+            </div>
+            <div class="admin">Administrator</div>
+        </header>
+
+        <!-- Appointment Form -->
+        <section class="patient-form-card">
+
+            <h2 id="appointmentFormTitle">Book New Appointment</h2>
+
+            <form id="appointmentForm">
+
+                <input type="hidden" id="appointmentId">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="patientId">Select Patient</label>
+                        <select id="patientId" required>
+                            <option value="">Loading patients...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doctorId">Select Doctor</label>
+                        <select id="doctorId" required>
+                            <option value="">Loading doctors...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentDate">Appointment Date</label>
+                        <input type="date" id="appointmentDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentTime">Appointment Time</label>
+                        <input type="time" id="appointmentTime" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="reason">Reason for Appointment</label>
+                        <textarea id="reason" rows="3"
+                            placeholder="Enter reason for appointment"
+                            required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" id="appointmentSubmitBtn">
+                        Book Appointment
+                    </button>
+
+                    <button type="button" id="appointmentCancelBtn"
+                            class="cancel-btn" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Appointment List -->
+        <section class="patient-list-card">
+
+            <div class="list-header">
+                <h2>All Appointments</h2>
+
+                <input type="search" id="searchAppointment"
+                    placeholder="Search patient or doctor">
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="appointmentTableBody">
+                        <tr>
+                            <td colspan="8">Loading appointments...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/appointments.js"></script>
+
+</body>
+</html>
